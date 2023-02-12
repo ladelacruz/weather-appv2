@@ -149,6 +149,7 @@
     $(document).ready(function(){
         const degreeIcon = '°';
         let city = (new URL(location.href)).searchParams.get('city')
+        $('.cities').val(city)
         // on load retrieve
         $.ajax({
             type: 'GET',
