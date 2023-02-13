@@ -1,87 +1,40 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Traits;
 
-use Illuminate\Http\Request;
-use App\Models\Places;
-use App\Models\Forecast;
 
-class TouristGuideController extends Controller
-{
-
-    public function places(Request $request)
-    {
-        return Places::getPlaces($request->city);
-    }
-
-    public function forecast(Request $request)
-    {
-        return Forecast::getForecast($request->city);
-    }
+trait CityTrait {
 
     /**
-     * Show the form for creating a new resource.
+     * Get the city's foursquare QS ready format
      *
-     * @return \Illuminate\Http\Response
+     * @param string $city
+     * @return string
      */
-    public function create()
+    public function getCityCode(string $city) : string
     {
-        //
-    }
-
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
-    public function store(Request $request)
-    {
-        //
-    }
-
-    /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function show($id)
-    {
-        //
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function edit($id)
-    {
-        //
-    }
-
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function update(Request $request, $id)
-    {
-        //
-    }
-
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy($id)
-    {
-        //
+        switch ($city) {
+            case 'Tokyo':
+                return 'Tokyo,JP';
+                break;
+            case 'Yokohama':
+                return 'Yokohama,JP';
+                break;
+            case 'Kyoto':
+                return 'Kyoto,JP';
+                break;
+            case 'Osaka':
+                return 'Osaka,JP';
+                break;
+            case 'Sapporo':
+                return 'Sapporo,JP';
+                break;
+            case 'Nagoya':
+                return 'Nagoya,JP';
+                break;
+            default:
+                return 'Tokyo,JP';
+                break;
+        }
     }
 }
