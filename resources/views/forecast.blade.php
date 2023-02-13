@@ -146,7 +146,7 @@
         $.ajax({
             type: 'GET',
             // default to Tokyo onload
-            url: `http://127.0.0.1:8000/api/forecast?city=${city}`,
+            url: `/api/forecast?city=${city}`,
             success: function(result) {
                 let firstForecast = Object.values(result)[0];
                 let forecasts = result;
@@ -195,7 +195,7 @@
             $.ajax({
                 type: 'GET',
                 // default to Tokyo onload
-                url: `http://127.0.0.1:8000/api/forecast?city=${e.target.value}`,
+                url: `/api/forecast?city=${e.target.value}`,
                 success: function(result) {
                     let firstForecast = Object.values(result)[0];
                     let forecasts = result;
